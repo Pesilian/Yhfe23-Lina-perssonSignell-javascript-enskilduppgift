@@ -39,5 +39,24 @@ getKey().then(data => {
       inputSearch.value = '';
       inputSearch.blur();
     });
+
+    inputSearch.addEventListener('keyup', event => {
+      if (event.key === 'Enter') {
+        const planetSearch = inputSearch.value;
+
+        //Hittar index efter valt sökord för att kunna rendera HTML
+        const planetIndex = planetsArr.findIndex(
+          planetsArr => planetsArr.name === planetSearch
+        );
+
+        // console.log(planetIndex);
+        //Planetindex används sedan för att få upp rätt array i inforutan.
+        renderPlanetInfo(planetsArr[planetIndex]);
+
+        //Rensar sökrutan
+        inputSearch.value = '';
+        inputSearch.blur();
+      }
+    });
   });
 });
