@@ -5,7 +5,7 @@
 
 body {
   background-color: #051c2c;
-  font-family: 'orbitron';
+  font-family: 'Roboto Mono', sans-serif;
 }
 
 /*ÖVERGRIPANDE*/
@@ -220,6 +220,44 @@ body {
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.planet_cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.planet_info {
+  width: 50%;
+}
+
+.infotext {
+  font-size: 20px;
+}
+
+.planet_name {
+  font-size: 40px;
+}
+
+.planet_type {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.planet_moons {
+  margin-top: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 15px;
+}
+
+.planet_temp {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.planet_desc {
+  margin-top: 40px;
 }
 
 .overlay {
