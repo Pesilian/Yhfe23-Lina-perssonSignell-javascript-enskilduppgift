@@ -2,7 +2,7 @@
 
 const infoContainer = document.querySelector('.info_container');
 
-//Function för att öppna upp overlay med info om planeter, lägger till html
+//FUNKTION FÖR ATT LÄGGA IN RENDERAD HTML FÖR ATT "ÖPPNA" OVERLAY
 const renderPlanetInfo = function (array) {
   const html = `
   <div class="modal">
@@ -18,12 +18,12 @@ const renderPlanetInfo = function (array) {
    <div class="overlay"></div>`;
   infoContainer.insertAdjacentHTML('afterbegin', html);
 
-  //Stängknapp på overlay, tar bort tillagd html
+  //KNAPP FÖR ATT STÄNGA OVERLAY
   document.querySelector('.close_btn').addEventListener('click', function () {
     infoContainer.remove();
-    //Vid stängning av inforuta så laddas sidan om för att möjliggöra ny sökning
+    //VID KLICK LADDAS SIDAN OM FÖR ATT MÖJLIGGÖRA NY SÖKNING
     location.reload();
   });
 };
-
+//EXPORT TILL SCRIP.JS
 export { renderPlanetInfo };

@@ -1,59 +1,60 @@
 'use strict';
 
+//MODULER
 import { getKey } from './key_module.js';
 
 import { getResponce } from './api_module.js';
 
 import { renderPlanetInfo } from './overlay_module.js';
 
-//Variabler för specifika element
+//VARIABLER FÖR ATT VÄLJA ELEMENT FÖR SÖKNING
 const inputSearch = document.querySelector('.search_input');
 const btnSearch = document.querySelector('.search_btn');
 
+//ANROPAR API FÖR HÄMTNING AV NYCKEL, GÖR STRING AV JSON
 getKey().then(data => {
   let apiKey = data.key;
   console.log(apiKey);
 
+  //ANROPAR API FÖR HÄMTNINNG AV INFO OM PLANETER, SKAPAR UPP EN NY ARRAY AV STRINGS FRÅN JSON
   getResponce(apiKey).then(data => {
     let planetsArr = data.bodies;
 
-    console.log(planetsArr);
-
-    //Inputfält och sökknapp
+    // SÄTTER FOKUS PÅ SÖKRUTA
     inputSearch.focus();
 
+    //VID KLICK SÖKS DET I HÄMTAD ARRAY
     btnSearch.addEventListener('click', function (e) {
       e.preventDefault();
       const planetSearch = inputSearch.value;
 
-      //Hittar index efter valt sökord för att kunna rendera HTML
+      //FÅR FRAM INDEX PÅ SÖKT PLANET
       const planetIndex = planetsArr.findIndex(
         planetsArr => planetsArr.name === planetSearch
       );
 
-      // console.log(planetIndex);
-      //Planetindex används sedan för att få upp rätt array i inforutan.
+      //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
       renderPlanetInfo(planetsArr[planetIndex]);
 
-      //Rensar sökrutan
+      //VID KLICK RENSAS ÄVEN SÖKRUTAN
       inputSearch.value = '';
       inputSearch.blur();
     });
 
+    //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
     inputSearch.addEventListener('keyup', event => {
       if (event.key === 'Enter') {
         const planetSearch = inputSearch.value;
 
-        //Hittar index efter valt sökord för att kunna rendera HTML
+        //FÅR FRAM INDEX PÅ SÖKT PLANET
         const planetIndex = planetsArr.findIndex(
           planetsArr => planetsArr.name === planetSearch
         );
 
-        // console.log(planetIndex);
-        //Planetindex används sedan för att få upp rätt array i inforutan.
+        //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
         renderPlanetInfo(planetsArr[planetIndex]);
 
-        //Rensar sökrutan
+        //RENSAR SÖKRUTAN
         inputSearch.value = '';
         inputSearch.blur();
       }

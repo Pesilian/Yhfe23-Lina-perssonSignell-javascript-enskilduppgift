@@ -1,5 +1,5 @@
 'use strict';
-
+//API FÖR ATT HÄMTA APINYCKEL
 async function getKey() {
   const resp = await fetch(
     'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys',
@@ -12,5 +12,5 @@ async function getKey() {
   console.log(data);
   return data;
 }
-
+//EXPORT TILL SCRIPT.JS
 export { getKey };
