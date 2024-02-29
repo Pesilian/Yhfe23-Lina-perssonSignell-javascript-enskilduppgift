@@ -5,15 +5,15 @@
 
 body {
   background-color: #051c2c;
-  font-family: 'orbitron', sans-serif;
+  font-family: 'orbitron';
 }
 
+/*Övergripande*/
 .container {
   display: flex;
   flex-direction: column;
 }
 
-/* HEADER */
 .header_container {
   margin-right: 20px;
   display: flex;
@@ -21,45 +21,43 @@ body {
   align-items: flex-end;
 }
 
-.header {
-  color: #835d32;
+.main_header {
+  color: #aabcfa;
   font-size: 40px;
 }
 
 .intro_text {
-  color: #835d32;
+  color: #aabcfa;
   font-size: 20px;
   margin-top: 10px;
 }
 
 .search_input {
-  height: 20px;
+  height: 30px;
   width: auto;
   margin-top: 10px;
   border-radius: 5px;
-  background-color: #f7eadb;
   border-style: none;
+  padding-left: 5px;
 }
 
 .search_btn {
   height: 20px;
-  width: 70px;
-  background-color: #835d32;
+  width: 50px;
+  background-color: #aabcfa;
+  font-family: inherit;
   margin-top: 5px;
   border-radius: 5px;
   border-style: none;
 }
 
-/* planets */
+/* Planeter */
 
 .planets_container {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 50px;
   justify-content: space-between;
-  align-items: center;
 }
 
 .sun {
@@ -67,6 +65,7 @@ body {
   height: 500px;
   width: 500px;
   border-radius: 500px;
+  margin-left: 20px;
 }
 .sun:hover {
   transform: scale(1.1);
@@ -80,7 +79,7 @@ body {
 }
 
 .mercury:hover {
-  transform: scale(2);
+  transform: scale(4);
 }
 
 .venus {
@@ -91,7 +90,7 @@ body {
 }
 
 .venus:hover {
-  transform: scale(2);
+  transform: scale(2.5);
 }
 
 .earth {
@@ -102,7 +101,7 @@ body {
 }
 
 .earth:hover {
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .mars {
@@ -118,13 +117,13 @@ body {
 
 .jupiter {
   background-color: #99865e;
-  height: 100px;
-  width: 100px;
-  border-radius: 100px;
+  height: 90px;
+  width: 90px;
+  border-radius: 90px;
 }
 
 .jupiter:hover {
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .saturn_container {
@@ -134,7 +133,7 @@ body {
 }
 
 .saturn_container:hover {
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .saturn {
@@ -165,7 +164,7 @@ body {
 }
 
 .uranus:hover {
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .neptune {
@@ -173,15 +172,17 @@ body {
   height: 60px;
   width: 60px;
   border-radius: 60px;
+  margin-right: 20px;
 }
 
 .neptune:hover {
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 /* Footer */
 
 .footer_container {
+  margin: 40px;
   justify-self: end;
   display: flex;
   justify-content: center;
@@ -192,7 +193,10 @@ body {
 .footer_content {
   font-size: 10px;
   align-self: flex-end;
+  color: #cad5fa;
 }
+
+/*Faktaruta/Overlay*/
 
 .close_btn {
   position: absolute;
@@ -227,4 +231,19 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .planets_container {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .sun {
+    margin: 0;
+  }
+
+  .neptune {
+    margin: 0;
+  }
 }

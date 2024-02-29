@@ -20,6 +20,8 @@ getKey().then(data => {
     console.log(planetsArr);
 
     //Inputfält och sökknapp
+    inputSearch.focus();
+
     btnSearch.addEventListener('click', function (e) {
       e.preventDefault();
       const planetSearch = inputSearch.value;
@@ -28,6 +30,7 @@ getKey().then(data => {
       const planetIndex = planetsArr.findIndex(
         planetsArr => planetsArr.name === planetSearch
       );
+
       // console.log(planetIndex);
       //Planetindex används sedan för att få upp rätt array i inforutan.
       renderPlanetInfo(planetsArr[planetIndex]);
