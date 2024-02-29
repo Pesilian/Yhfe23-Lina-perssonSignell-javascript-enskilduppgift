@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+
+      <section style="z-index: 3" class="header_container">
+        <h1 class="header">Systema solare</h1>
+        <h2 class="intro_text">Lär känna planeterna i vårt solsystem</h2>
+        <input type="search" class="search_input" />
+        <button class="search_btn">Sök</button>
+      </section>
+
+      <!-- Planets -->
+      <section style="z-index: 1" class="planets_container">
+        <div class="sun"></div>
+        <div class="mercury"></div>
+        <div class="venus"></div>
+        <div class="earth"></div>
+        <div class="mars"></div>
+        <div class="jupiter"></div>
+        <div class="saturn_container">
+          <div style="z-index: 1" class="saturn"></div>
+          <div style="z-index: 3" class="saturn_rings"></div>
+        </div>
+        <div class="uranus"></div>
+        <div class="neptune"></div>
+      </section>
+      <section class="info_container">
+        <!-- <div class="modal">
+        <button class="close_btn">&times;</button>
+            <h3 class="planet_name">Sun</h3>
+            <h4 class="planet_latin">Solaris</h4>
+            <p class="planet_desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              consequatur doloremque numquam quisquam debitis laudantium, omnis
+              voluptate id et dolorum, voluptatem necessitatibus? Optio maiores
+              impedit tempora veritatis eius nam cupiditate!
+            </p>
+            <p class="planet_type">Star</p>
+            <p class="planet_moons">No moons</p>
+            <p class="planet_temp">Day: 6000 / Night 6000</p>
+            <p class="planet_orbital"></p>
+      </div>
+      <div class="overlay"></div> -->
+      </section>
+      <!-- Footer -->
+      <section class="footer_container">
+        <h2 class="footer_content">Made possible by NASA</h2>
+      </section>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
