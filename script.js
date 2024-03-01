@@ -23,17 +23,15 @@ getKey().then(data => {
     // SÄTTER FOKUS PÅ SÖKRUTA
     inputSearch.focus();
 
-    //VID KLICK SÖKS DET I HÄMTAD ARRAY
+    //VID BUTTON-KLICK SÖKS DET I HÄMTAD ARRAY
     btnSearch.addEventListener('click', function (e) {
       e.preventDefault();
 
-      //OMVANDLAR INPUT-TEXTENS FÖRSTA BOKSTAV TILL VERSAL FÖR ATT MATCHA API-ARRAY/KUNNA SÖKA MED GEMENER
-      const planetSearch =
-        inputSearch.value.charAt(0).toUpperCase() + inputSearch.value.slice(1);
-
-      //FÅR FRAM INDEX PÅ SÖKT PLANET
+      //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
       const planetIndex = planetsArr.findIndex(
-        planetsArr => planetsArr.name === planetSearch
+        planetsArr =>
+          planetsArr.name.toLowerCase().trim() ===
+          inputSearch.value.toLowerCase().trim()
       );
 
       //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
@@ -47,16 +45,12 @@ getKey().then(data => {
     //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
     inputSearch.addEventListener('keyup', event => {
       if (event.key === 'Enter') {
-        //OMVANDLAR INPUT-TEXTENS FÖRSTA BOKSTAV TILL VERSAL FÖR ATT MATCHA API-ARRAY/KUNNA SÖKA MED GEMENER
-        const planetSearch =
-          inputSearch.value.charAt(0).toUpperCase() +
-          inputSearch.value.slice(1);
-
-        //FÅR FRAM INDEX PÅ SÖKT PLANET
+        //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
         const planetIndex = planetsArr.findIndex(
-          planetsArr => planetsArr.name === planetSearch
+          planetsArr =>
+            planetsArr.name.toLowerCase().trim() ===
+            inputSearch.value.toLowerCase().trim()
         );
-
         //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
         renderPlanetInfo(planetsArr[planetIndex]);
 
