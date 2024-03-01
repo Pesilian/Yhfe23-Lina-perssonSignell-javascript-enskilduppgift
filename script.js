@@ -1,35 +1,63 @@
 'use strict';
 
-//Fetch API
+//MODULER
+import { getKey } from './key_module.js';
+
 import { getResponce } from './api_module.js';
 
-//Renderar HTML för att öppna overlay med info
 import { renderPlanetInfo } from './overlay_module.js';
 
-//Variabler för specifika element
+//VARIABLER FÖR ATT VÄLJA ELEMENT FÖR SÖKNING
 const inputSearch = document.querySelector('.search_input');
 const btnSearch = document.querySelector('.search_btn');
 
-//Omvandlar Json till ny array med info om planeter
-getResponce().then(data => {
-  let planetsArr = data.bodies;
-  // console.log(planetsArr);
+//ANROPAR API FÖR HÄMTNING AV NYCKEL, GÖR STRING AV JSON
+getKey().then(data => {
+  let apiKey = data.key;
+  console.log(apiKey);
 
-  //Inputfält och sökknapp
-  btnSearch.addEventListener('click', function (e) {
-    e.preventDefault();
-    const planetSearch = inputSearch.value;
+  //ANROPAR API FÖR HÄMTNINNG AV INFO OM PLANETER, SKAPAR UPP EN NY ARRAY AV STRINGS FRÅN JSON
+  getResponce(apiKey).then(data => {
+    let planetsArr = data.bodies;
 
-    //Hittar index efter valt sökord för att kunna rendera HTML
-    const planetIndex = planetsArr.findIndex(
-      planetsArr => planetsArr.name === planetSearch
-    );
-    // console.log(planetIndex);
-    //Planetindex används sedan för att få upp rätt array i inforutan.
-    renderPlanetInfo(planetsArr[planetIndex]);
+    // SÄTTER FOKUS PÅ SÖKRUTA
+    inputSearch.focus();
 
-    //Rensar sökrutan
-    inputSearch.value = '';
-    inputSearch.blur();
+    //VID BUTTON-KLICK SÖKS DET I HÄMTAD ARRAY
+    btnSearch.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
+      const planetIndex = planetsArr.findIndex(
+        planetsArr =>
+          planetsArr.name.toLowerCase().trim() ===
+          inputSearch.value.toLowerCase().trim()
+      );
+
+      //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
+      renderPlanetInfo(planetsArr[planetIndex]);
+
+      //VID KLICK RENSAS ÄVEN SÖKRUTAN
+      inputSearch.value = '';
+      inputSearch.blur();
+    });
+
+    //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
+    inputSearch.addEventListener('keyup', event => {
+      if (event.key === 'Enter') {
+        //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
+        const planetIndex = planetsArr.findIndex(
+          planetsArr =>
+            planetsArr.name.toLowerCase().trim() ===
+            inputSearch.value.toLowerCase().trim()
+        );
+        //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
+        renderPlanetInfo(planetsArr[planetIndex]);
+
+        //RENSAR SÖKRUTAN
+        inputSearch.value = '';
+        inputSearch.blur();
+      }
+    });
   });
 });

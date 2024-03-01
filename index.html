@@ -7,61 +7,106 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
 
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Solaris</title>
   </head>
   <body>
-    <div class="container">
-      <!-- Header -->
+    <main class="main_container">
+      <!-- HEADER -->
 
-      <section style="z-index: 3" class="header_container">
-        <h1 class="header">Systema solare</h1>
+      <main class="header_container">
+        <h1 class="main_header">Systema solare</h1>
         <h2 class="intro_text">Lär känna planeterna i vårt solsystem</h2>
+
+        <!-- SÖKFÄLT/KNAPP -->
         <input type="search" class="search_input" />
         <button class="search_btn">Sök</button>
+      </main>
+
+      <!-- PLANETER -->
+      <section class="planets_container">
+        <div class="sun_container">
+          <figure class="sun"></figure>
+        </div>
+
+        <div class="mercury_container">
+          <figure class="mercury"></figure>
+        </div>
+
+        <div class="venus_container">
+          <figure class="venus"></figure>
+        </div>
+
+        <div class="earth_container">
+          <figure class="earth"></figure>
+        </div>
+
+        <div class="mars_container">
+          <figure class="mars"></figure>
+        </div>
+
+        <div class="jupiter_container">
+          <figure class="jupiter"></figure>
+        </div>
+
+        <div class="saturn_container">
+          <figure style="z-index: 1" class="saturn"></figure>
+          <figure style="z-index: 3" class="saturn_rings"></figure>
+        </div>
+        <div class="uranus_container">
+          <figure class="uranus"></figure>
+        </div>
+        <div class="neptune_container">
+          <figure class="neptune"></figure>
+        </div>
       </section>
 
-      <!-- Planets -->
-      <section style="z-index: 1" class="planets_container">
-        <div class="sun"></div>
-        <div class="mercury"></div>
-        <div class="venus"></div>
-        <div class="earth"></div>
-        <div class="mars"></div>
-        <div class="jupiter"></div>
-        <div class="saturn_container">
-          <div style="z-index: 1" class="saturn"></div>
-          <div style="z-index: 3" class="saturn_rings"></div>
-        </div>
-        <div class="uranus"></div>
-        <div class="neptune"></div>
-      </section>
-      <section class="info_container">
+      <!--FAKTARUTA/OVERLAY-->
+      <article class="info_container">
+        <!-- HÄR LÄGGS HTML FRÅN JS -->
+
         <!-- <div class="modal">
-        <button class="close_btn">&times;</button>
-            <h3 class="planet_name">Sun</h3>
-            <h4 class="planet_latin">Solaris</h4>
-            <p class="planet_desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              consequatur doloremque numquam quisquam debitis laudantium, omnis
-              voluptate id et dolorum, voluptatem necessitatibus? Optio maiores
-              impedit tempora veritatis eius nam cupiditate!
-            </p>
-            <p class="planet_type">Star</p>
-            <p class="planet_moons">No moons</p>
-            <p class="planet_temp">Day: 6000 / Night 6000</p>
-            <p class="planet_orbital"></p>
-      </div>
-      <div class="overlay"></div> -->
-      </section>
-      <!-- Footer -->
+          <button class="close_btn">&times;</button>
+          <div class="planetinfo_container">
+            <section class="planet_header">
+              <h3 class="planet_name infotext">${array.name}</h3>
+              <h4 class="planet_latin infotext">${array.latinName}</h4>
+              <p class="planet_type infotext">Typ: ${array.type}</p>
+            </section>
+            <aside class="planet_aside">
+              <p class="planet_moons infotext">Månar: ${array.moons}</p>
+              <p class="planet_temp infotext">
+                Dags-temperatur:${array.temp.day} grader /
+                Natt-temperatur:${array.temp.night} grader
+              </p>
+            </aside>
+          </div>
+          <section class="planet_description">
+            <p class="planet_desc infotext">${array.desc}</p>
+          </section>
+        </div>
+        <div class="overlay"></div>
+         -->
+      </article>
+
+      <!-- FOOTER-->
+
       <section class="footer_container">
         <h2 class="footer_content">Made possible by NASA</h2>
       </section>
-    </div>
+    </main>
     <script type="module" src="script.js"></script>
   </body>
 </html>
