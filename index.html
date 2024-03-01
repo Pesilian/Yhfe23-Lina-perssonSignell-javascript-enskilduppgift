@@ -23,7 +23,7 @@
     <title>Solaris</title>
   </head>
   <body>
-    <main class="container">
+    <main class="main_container">
       <!-- HEADER -->
 
       <main class="header_container">
@@ -78,21 +78,27 @@
         <!-- HÄR LÄGGS HTML FRÅN JS -->
 
         <!-- <div class="modal">
-        <button class="close_btn">&times;</button>
-            <h3 class="planet_name">Sun</h3>
-            <h4 class="planet_latin">Solaris</h4>
-            <p class="planet_desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              consequatur doloremque numquam quisquam debitis laudantium, omnis
-              voluptate id et dolorum, voluptatem necessitatibus? Optio maiores
-              impedit tempora veritatis eius nam cupiditate!
-            </p>
-            <p class="planet_type">Star</p>
-            <p class="planet_moons">No moons</p>
-            <p class="planet_temp">Day: 6000 / Night 6000</p>
-            <p class="planet_orbital"></p>
-      </div>
-      <div class="overlay"></div> -->
+          <button class="close_btn">&times;</button>
+          <div class="planetinfo_container">
+            <section class="planet_header">
+              <h3 class="planet_name infotext">${array.name}</h3>
+              <h4 class="planet_latin infotext">${array.latinName}</h4>
+              <p class="planet_type infotext">Typ: ${array.type}</p>
+            </section>
+            <aside class="planet_aside">
+              <p class="planet_moons infotext">Månar: ${array.moons}</p>
+              <p class="planet_temp infotext">
+                Dags-temperatur:${array.temp.day} grader /
+                Natt-temperatur:${array.temp.night} grader
+              </p>
+            </aside>
+          </div>
+          <section class="planet_description">
+            <p class="planet_desc infotext">${array.desc}</p>
+          </section>
+        </div>
+        <div class="overlay"></div>
+         -->
       </article>
 
       <!-- FOOTER-->

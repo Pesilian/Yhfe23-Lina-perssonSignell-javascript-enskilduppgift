@@ -6,25 +6,26 @@ const infoContainer = document.querySelector('.info_container');
 const renderPlanetInfo = function (array) {
   const html = `
   <div class="modal">
-  <button class="close_btn">&times;</button>
-  <div class="planet_cont">
-  <section class="planet_header">
-      <h3 class="planet_name infotext">${array.name}</h3>
-      <h4 class="planet_latin infotext">${array.latinName}</h4>
-      <p class="planet_type infotext">Typ: ${array.type}</p>
-  </section>
-  <section class="planet_info">
-      <p class="planet_moons infotext">Moons: ${array.moons}</p>
-      <p class="planet_temp infotext">Dagstemperatur:${array.temp.day}g grader / Natttemperatur:${array.temp.night} grader</p>
-  </section>
-  </div>
-  <section class="planet_description">
-    <p class="planet_desc infotext">${array.desc}
-      </p>
-  </section>
-      
-   </div>
-   <div class="overlay"></div>`;
+          <button class="close_btn">&times;</button>
+          <div class="planetinfo_container">
+            <section class="planet_header">
+              <h3 class="planet_name infotext">${array.name}</h3>
+              <h4 class="planet_latin infotext">${array.latinName}</h4>
+              <p class="planet_type infotext">Typ: ${array.type}</p>
+            </section>
+            <aside class="planet_aside">
+              <p class="planet_moons infotext">Månar: ${array.moons}</p>
+              <p class="planet_temp infotext">
+                Dags-temperatur:${array.temp.day} grader /
+                Natt-temperatur:${array.temp.night} grader
+              </p>
+            </aside>
+          </div>
+          <section class="planet_description">
+            <p class="planet_desc infotext">${array.desc}</p>
+          </section>
+        </div>
+        <div class="overlay"></div>`;
   infoContainer.insertAdjacentHTML('afterbegin', html);
 
   //KNAPP FÖR ATT STÄNGA OVERLAY
