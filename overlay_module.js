@@ -3,26 +3,26 @@
 const infoContainer = document.querySelector('.info_container');
 
 //FUNKTION FÖR ATT LÄGGA IN RENDERAD HTML FÖR ATT "ÖPPNA" OVERLAY
-const renderPlanetInfo = function (array) {
+const renderPlanetInfo = function (planet) {
   const html = `
   <div class="modal">
           <button class="close_btn">&times;</button>
           <div class="planetinfo_container">
             <section class="planet_header">
-              <h3 class="planet_name infotext">${array.name}</h3>
-              <h4 class="planet_latin infotext">${array.latinName}</h4>
-              <p class="planet_type infotext">Typ: ${array.type}</p>
+              <h3 class="planet_name infotext">${planet.name}</h3>
+              <h4 class="planet_latin infotext">${planet.latinName}</h4>
+              <p class="planet_type infotext">Typ: ${planet.type}</p>
             </section>
             <aside class="planet_aside">
-              <p class="planet_moons infotext">Månar: ${array.moons}</p>
+              <p class="planet_moons infotext">Månar: ${planet.moons}</p>
               <p class="planet_temp infotext">
-                Dags-temperatur:${array.temp.day} grader /
-                Natt-temperatur:${array.temp.night} grader
+                Dags-temperatur:${planet.temp.day} grader /
+                Natt-temperatur:${planet.temp.night} grader
               </p>
             </aside>
           </div>
           <section class="planet_description">
-            <p class="planet_desc infotext">${array.desc}</p>
+            <p class="planet_desc infotext">${planet.desc}</p>
           </section>
         </div>
         <div class="overlay"></div>`;

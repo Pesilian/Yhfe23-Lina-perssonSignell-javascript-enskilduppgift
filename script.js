@@ -3,7 +3,7 @@
 //MODULER
 import { getKey } from './key_module.js';
 
-import { getResponce } from './api_module.js';
+import { getResponse } from './api_module.js';
 
 import { renderPlanetInfo } from './overlay_module.js';
 
@@ -25,7 +25,7 @@ getKey().then(data => {
   let apiKey = data.key;
 
   //ANROPAR API FÖR HÄMTNINNG AV INFO OM PLANETER, SKAPAR UPP EN NY ARRAY AV STRINGS FRÅN JSON
-  getResponce(apiKey).then(data => {
+  getResponse(apiKey).then(data => {
     let planetsArr = data.bodies;
 
     // SÄTTER FOKUS PÅ SÖKRUTA
@@ -47,7 +47,7 @@ getKey().then(data => {
       inputSearch.blur();
     }
 
-    //FUNKTION  FÖR ATT KUNNA KLICKA UPP INFO OM PLANETER (skulle göras snyggare/bättre om tid fanns)
+    //FUNKTION  FÖR ATT KUNNA KLICKA UPP INFO OM PLANETER
     function planetClick(index) {
       renderPlanetInfo(planetsArr[index]);
     }
@@ -68,6 +68,8 @@ getKey().then(data => {
     });
 
     // EVENTHANDLERS FÖR PLANETERNA
+    //(Jag skulle önskat (om tiden fanns)att göra så att man genom klick får fram rätt element och inte behövde välja detta för varje eventhandling. Hade även velat loopa ienom planeterna för att få fram rätt index, då ett problem med denna lösning är att jag förutsätter att planeterna hamnar i denna ordning, dvs solen tex alltid har index 0)
+
     sun.addEventListener('click', function () {
       planetClick(0);
     });
