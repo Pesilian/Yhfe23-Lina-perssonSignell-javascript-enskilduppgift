@@ -11,6 +11,7 @@ async function getResponce(key) {
     }
   );
   const data = await resp.json();
+  console.log(data);
   return data;
 }
 
