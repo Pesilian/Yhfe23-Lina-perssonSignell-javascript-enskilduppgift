@@ -23,7 +23,6 @@ const neptune = document.querySelector('.neptune');
 //ANROPAR API FÖR HÄMTNING AV NYCKEL, GÖR STRING AV JSON
 getKey().then(data => {
   let apiKey = data.key;
-  console.log(apiKey);
 
   //ANROPAR API FÖR HÄMTNINNG AV INFO OM PLANETER, SKAPAR UPP EN NY ARRAY AV STRINGS FRÅN JSON
   getResponce(apiKey).then(data => {
@@ -32,10 +31,7 @@ getKey().then(data => {
     // SÄTTER FOKUS PÅ SÖKRUTA
     inputSearch.focus();
 
-    //VID BUTTON-KLICK SÖKS DET I HÄMTAD ARRAY
-    btnSearch.addEventListener('click', function (e) {
-      e.preventDefault();
-
+    function searchRender() {
       //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE" SAMT TAR BORT MELLANSLAG FÖRE OCH EFTER
       const planetIndex = planetsArr.findIndex(
         planetsArr =>
@@ -49,31 +45,27 @@ getKey().then(data => {
       //VID KLICK RENSAS ÄVEN SÖKRUTAN
       inputSearch.value = '';
       inputSearch.blur();
+    }
+
+    //FUNKTION  FÖR ATT KUNNA KLICKA UPP INFO OM PLANETER (skulle göras snyggare/bättre om tid fanns)
+    function planetClick(index) {
+      renderPlanetInfo(planetsArr[index]);
+    }
+
+    //------------EVENTHANDELERS----------
+
+    //VID BUTTON-KLICK SÖKS DET I HÄMTAD ARRAY
+    btnSearch.addEventListener('click', function (e) {
+      e.preventDefault();
+      searchRender();
     });
 
     //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
     inputSearch.addEventListener('keyup', event => {
       if (event.key === 'Enter') {
-        //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE" SAMT TAR BORT MELLANSLAG FÖRE OCH EFTER
-        const planetIndex = planetsArr.findIndex(
-          planetsArr =>
-            planetsArr.name.toLowerCase().trim() ===
-            inputSearch.value.toLowerCase().trim()
-        );
-        //INDEX ANVÄNDS SEDAN FÖR ATT RENDERA HTML FÖR MODALT FÖNSTER/OVERLAY
-        renderPlanetInfo(planetsArr[planetIndex]);
-
-        //RENSAR SÖKRUTAN
-        inputSearch.value = '';
-        inputSearch.blur();
+        searchRender();
       }
     });
-
-    //EVENTHANDLERS FÖR ATT KUNNA KLICKA UPP INFO OM PLANETER (skulle göras snyggare om tid fanns)
-    function planetClick(index) {
-      renderPlanetInfo(planetsArr[index]);
-      console.log('clicked');
-    }
 
     sun.addEventListener('click', function () {
       planetClick(0);

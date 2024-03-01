@@ -9,7 +9,6 @@ async function getKey() {
     }
   );
   const data = await resp.json();
-  console.log(data);
   return data;
 }
 //EXPORT TILL SCRIPT.JS
