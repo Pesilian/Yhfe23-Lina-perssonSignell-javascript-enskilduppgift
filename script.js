@@ -26,7 +26,10 @@ getKey().then(data => {
     //VID KLICK SÖKS DET I HÄMTAD ARRAY
     btnSearch.addEventListener('click', function (e) {
       e.preventDefault();
-      const planetSearch = inputSearch.value;
+
+      //OMVANDLAR INPUT-TEXTENS FÖRSTA BOKSTAV TILL VERSAL FÖR ATT MATCHA API-ARRAY/KUNNA SÖKA MED GEMENER
+      const planetSearch =
+        inputSearch.value.charAt(0).toUpperCase() + inputSearch.value.slice(1);
 
       //FÅR FRAM INDEX PÅ SÖKT PLANET
       const planetIndex = planetsArr.findIndex(
@@ -44,7 +47,10 @@ getKey().then(data => {
     //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
     inputSearch.addEventListener('keyup', event => {
       if (event.key === 'Enter') {
-        const planetSearch = inputSearch.value;
+        //OMVANDLAR INPUT-TEXTENS FÖRSTA BOKSTAV TILL VERSAL FÖR ATT MATCHA API-ARRAY/KUNNA SÖKA MED GEMENER
+        const planetSearch =
+          inputSearch.value.charAt(0).toUpperCase() +
+          inputSearch.value.slice(1);
 
         //FÅR FRAM INDEX PÅ SÖKT PLANET
         const planetIndex = planetsArr.findIndex(
