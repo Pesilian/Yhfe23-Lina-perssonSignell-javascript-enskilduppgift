@@ -67,6 +67,7 @@ getKey().then(data => {
       }
     });
 
+    // EVENTHANDLERS FÖR PLANETERNA
     sun.addEventListener('click', function () {
       planetClick(0);
     });
