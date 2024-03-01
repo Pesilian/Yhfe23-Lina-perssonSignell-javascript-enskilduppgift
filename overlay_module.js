@@ -34,24 +34,6 @@ const renderPlanetInfo = function (array) {
     //VID KLICK LADDAS SIDAN OM FÖR ATT MÖJLIGGÖRA NY SÖKNING
     location.reload();
   });
-
-  document.querySelector('.arrow_left').addEventListener('click', function () {
-    console.log('hej');
-    // if (planetIndex >= 0) {
-    //   renderPlanetInfo(array - 1);
-    // } else {
-    //   renderPlanetInfo(array + 8);
-    // }
-  });
-
-  document.querySelector('.arrow_right').addEventListener('click', function () {
-    console.log('hå');
-    // if (planetIndex <= 7) {
-    //   renderPlanetInfo(array + 1);
-    // } else {
-    //   renderPlanetInfo(array - 8);
-    // }
-  });
 };
 
 //EXPORT TILL SCRIP.JS
