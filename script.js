@@ -7,7 +7,7 @@ import { getResponce } from './api_module.js';
 
 import { renderPlanetInfo } from './overlay_module.js';
 
-//VARIABLER FÖR ATT VÄLJA ELEMENT FÖR SÖKNING
+//VARIABLER FÖR ATT VÄLJA ELEMENT FÖR EVENTHANDELERS
 const inputSearch = document.querySelector('.search_input');
 const btnSearch = document.querySelector('.search_btn');
 const sun = document.querySelector('.sun');
@@ -36,7 +36,7 @@ getKey().then(data => {
     btnSearch.addEventListener('click', function (e) {
       e.preventDefault();
 
-      //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
+      //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE" SAMT TAR BORT MELLANSLAG FÖRE OCH EFTER
       const planetIndex = planetsArr.findIndex(
         planetsArr =>
           planetsArr.name.toLowerCase().trim() ===
@@ -54,7 +54,7 @@ getKey().then(data => {
     //SÖKNING EFTER TANGENTBORDSTRYCK ENTER
     inputSearch.addEventListener('keyup', event => {
       if (event.key === 'Enter') {
-        //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE"
+        //FÅR FRAM INDEX PÅ SÖKT PLANET, SÖKINPUT GÖRS "CASE-INSENSETIVE" SAMT TAR BORT MELLANSLAG FÖRE OCH EFTER
         const planetIndex = planetsArr.findIndex(
           planetsArr =>
             planetsArr.name.toLowerCase().trim() ===
